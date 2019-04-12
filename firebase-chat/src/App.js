@@ -4,8 +4,6 @@ const App = (props) => (
     <div>
         App
     </div>
-
-
 )
 
 export default App
