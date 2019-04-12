@@ -5,36 +5,42 @@ import { database } from './firebaseConfig'
 import MessageList from './MessageList'
 import NewMessageForm from './NewMessageForm'
 
-
 class Chat extends React.Component {
-    state = {
-        messages: null,
-        newMessageText: '',
-    }
+  state = {
+    messages: null,
+    newMessageText: '',
+  }
 
-    componentDidMount() {
-        database.ref('JFDDL&/chat').on(
-            'value',
-            () => { }
-        )
-    }
+  componentDidMount() {
+    database.ref('JFDDL7/chat').on(
+      'value',
+      (snapshot) => this.setState({
+        messages: snapshot.val()
+      })
+    )
+  }
 
-    onNewMessageTextChanged = (event) =>
-        this.setState({ newMessageText: event.target.value })
+  componentWillUnmount() {
+    database.ref('JFDDL7/chat').off()
+  }
 
-    render() {
-        return (
-            <div>
-                <MessageList
-                    messages={this.state.messages}
-                />
-                <NewMessageForm
-                    newMessageText={this.state.newMessageText}
-                    onNewMessageTextChanged={this.onNewMessageTextChanged} />
+  onNewMessageTextChanged = (event) => this.setState({
+    newMessageText: event.target.value,
+  })
 
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <MessageList
+          messages={this.state.messages}
+        />
+        <NewMessageForm
+          newMessageText={this.state.newMessageText}
+          onNewMessageTextChanged={this.onNewMessageTextChanged}
+        />
+      </div>
+    )
+  }
 }
 
 export default Chat
