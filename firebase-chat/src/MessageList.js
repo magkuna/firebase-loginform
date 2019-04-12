@@ -23,6 +23,7 @@ const MessageList = (props) => {
                         <Message
                             key={message.key}
                             message={message}
+                            toggleFavourite={props.toggleFavourite}
                             />
     
                     )
