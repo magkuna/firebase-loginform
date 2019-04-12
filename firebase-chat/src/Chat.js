@@ -9,6 +9,8 @@ class Chat extends React.Component {
         messages: null,
         newMessageText: ''
     }
+onNewMessageTextChanged = (event) =>  
+this.setState({newMessageText: event.target.value})
 
     render() {
         return (
@@ -17,7 +19,8 @@ class Chat extends React.Component {
                 messages={this.state.messages}
                 />
                 <NewMessageForm
-                newMessageText= {this.state.newMessageText} />
+                newMessageText= {this.state.newMessageText} 
+                onNewMessageTextChanged = {this.onNewMessageTextChanged}/>
 
             </div>
         )
