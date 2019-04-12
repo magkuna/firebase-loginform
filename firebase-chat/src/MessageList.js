@@ -13,6 +13,7 @@ const MessageList = (props) => {
                     key,
                 })
             )
+            .reverse()
     )
     return (
         <List>
