@@ -17,7 +17,8 @@ const styles = {
     },
     button: {
         backgroundColor: 'purple',
-        color: 'white'
+        color: 'white',
+        marginTop: 10
 
 
     }
@@ -45,7 +46,7 @@ class Auth extends React.Component {
                         <div
                         style={styles.root}
                       >
-                      JFDDL7
+                      <b>JFDDL7 Chat</b>
                             <Button
                                 variant={'contained'}
                                 style={styles.button}
