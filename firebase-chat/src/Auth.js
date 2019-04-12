@@ -13,12 +13,14 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
+       
         
     },
     button: {
         backgroundColor: 'purple',
         color: 'white',
-        marginTop: 10
+        marginTop: 10,
+        fontFamily: 'sans-serif'
 
 
     }
