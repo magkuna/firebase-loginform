@@ -1,6 +1,9 @@
 import React from 'react'
 
+import {auth, googleProvider} from './firebaseConfig'
+
 import Button from '@material-ui/core/Button'
+//import { url } from 'inspector';
 
 const styles = {
     root: {
@@ -9,9 +12,12 @@ const styles = {
         height: '100vh',
         justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        
     },
     button: {
+        backgroundColor: 'purple',
+        color: 'white'
 
 
     }
@@ -21,6 +27,12 @@ const styles = {
 class Auth extends React.Component {
     state = {
         isUSerLoggedIn: false
+
+    }
+    onLogInByGoogleClick =  () => {
+        auth.signInWithPopup (googleProvider)
+        .catch(console.log)
+
 
     }
     render() {
@@ -36,8 +48,8 @@ class Auth extends React.Component {
                       JFDDL7
                             <Button
                                 variant={'contained'}
-                                color={'secondary'}
                                 style={styles.button}
+                                onClick={this.onLogInByGoogleClick}
                             >
                                 Login by GOOGLE
             
