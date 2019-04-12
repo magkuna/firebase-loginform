@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Message from './Message'
+
 const MessageList = (props) => {
     const messagesArray = (
         Object.entries(props.messages || {})
@@ -15,11 +17,11 @@ const MessageList = (props) => {
             {
                 messagesArray.map(
                     message => (
-                        <div
+                        <Message
                             key={message.key}
-                        >
-                            {message.text}
-                        </div>
+                            message={message}
+                            />
+    
                     )
                 )
             }
